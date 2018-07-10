@@ -6,7 +6,7 @@ Expenses Bot Workshop demonstrates how you can use the Bot Framework with LUIS (
 </br>
 
 ## Before you start...
-Please use this link "OFFIDICAL LAB SET UP L INK HAS TO BE PASTED" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop.
+Please use this link "OFFICIAL LAB SET UP LINK HAS TO BE PASTED" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop.
 
 --> screenshot
 
@@ -26,12 +26,11 @@ This guide will help you step by step to perform the tasks that are necessary to
  ![Search for bot](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/2_search%20for%20bot.png)  
 
  The bot wizard window will pop up and to continue, press <b>“Create”</b>
-
  ![Create bot img1](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/5_1_Create%20Bot%20Wizard.png)  
 
  In the next step, the wizard will give you fields you need to fill out with some information:
  *	<b>Bot name</b>: Enter a unique bot name. For example “ContosoExpenses + ‘your alias’”  
-     * Note: The name must be globally unique, therefore adding your alias.
+     * Note: The name must be globally unique, therefore add your alias.
  *	<b>Resource Group</b>: Use <b>existing resource group</b> and select the resource group that will be proposed in the drop-down bar
  *	<b>Location</b>: select <b>Central US</b>
  *	<b>Pricing Tier</b>: <b>S1</b>
@@ -64,7 +63,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 
 
- ### 3. View and Modify your bot’s code using App Service Editor
+ ### 3. View and modify your bot’s code using App Service Editor
  
  In the left pane, under Development Tools, click on All App service settings to open the App Service Editor (Preview).
  
