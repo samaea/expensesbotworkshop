@@ -5,12 +5,18 @@ Expenses Bot Workshop demonstrates how you can use the Bot Framework with LUIS (
 \[3\] https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/  
 </br>
 
+## Before you start...
+Please use this link "OFFIDICAL LAB SET UP L INK HAS TO BE PASTED" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop.
+
+--> screenshot
+
+
 ## User Guide  
 This guide will help you step by step to perform the tasks that are necessary to implement your Chatbot.  
 
 ### 1. Create a Bot Service Resource  
 
- Navigate to the website www.portal.azure.com and log in with your Microsoft AD credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
+ Navigate to the website www.portal.azure.com and log in with your Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
 
  ![Create a resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/1_create%20a%20resource.png)  
 
