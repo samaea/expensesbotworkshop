@@ -14,6 +14,7 @@ Please use this link "OFFIDICAL LAB SET UP L INK HAS TO BE PASTED" to set up you
 ## User Guide  
 This guide will help you step by step to perform the tasks that are necessary to implement your Chatbot.  
 
+
 ### 1. Create a Bot Service Resource  
 
  Navigate to the website www.portal.azure.com and log in with your Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
@@ -54,12 +55,15 @@ This guide will help you step by step to perform the tasks that are necessary to
  ![Go to resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/7_Go%20to%20resource.png)  
 
 
-### 2. Test you Bot Service
+
+### 2. Test your Bot Service
 
  In your resource on the left panel, scroll to <b>“Test in Web Chat”</b> to test if your bot is running and type “Hello”. The bot will respond with “You have reached Greeting. You said: Hello”. This confirms that the bot has received your message and passed it to a default LUIS app. This LUIS app detected the default “Greeting” intent.  
 
  ![Webchat](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/8_Webchat.png)  
- 
+
+
+
  ### 3. View and Modify your bot’s code using App Service Editor
  
  In the left pane, under Development Tools, click on All App service settings to open the App Service Editor (Preview).
