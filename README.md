@@ -8,7 +8,7 @@ Expenses Bot Workshop demonstrates how you can use the Bot Framework with LUIS (
 ## Before you start...
 Please use this link "OFFICIAL LAB SET UP LINK HAS TO BE PASTED" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop.
 
---> screenshot
+![On demand lab](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/ondemandlab.png)
 
 
 ## User Guide  
@@ -78,6 +78,64 @@ This guide will help you step by step to perform the tasks that are necessary to
 When performing a change to the source code, <b>it is important to right-click on the tab “build.cmd” on the left pane and run it to compile and transform it to executable code</b>. If not, your changes will not be reflected in the chatbot conversation.
 
 
-   ![App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10_appserviceeditor.png)
-
+![App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10_appserviceeditor.png)  
    
+Now that you have explored the code, <b>right-click on “build.cmd” under Properties and click “Run from console”</b>. You should receive the following message, stating a successful run:  
+
+![App Service Editor - Build](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-3_appserviceeditor.png)
+
+ ### 4.	Use LUIS to train intents
+ 
+To explore the preconfigured default intents and utterances, switch to the LUIS dashboard. (<b>NOTE: Leave the tab you just used open, you will need it later</b>):
+
+1. Open a new web browser tab and navigate to https://www.luis.ai
+1. Click on Sign In and log in with your Azure credentials (same as for the Azure Portal in the first step)  
+
+    ![LUIS Login on homepage](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_0_login.png)
+
+1.	Click <b>“My Apps”</b> and find your (on the Azure portal created) <b>bot service “ContosoExpenses-“youralias”</b>:
+
+    ![LUIS Apps](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_2-1_intents.PNG)  
+    
+1.	You should now see all the preconfigured intents, which match the intents stated in the App Code Editor under the “BasicLuisDialog.cs” tab. Feel free to click on the intents and those along with the utterances associated with each intent. The utterances are sample sentences/questions that train LUIS to understand how to map sentences (utterances) to a specific intent.  
+
+    ![LUIS Intents](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_3_intents.PNG)  
+    
+ 1.	In the next step we will create a new intent: <b>click on “Create a new intent”</b>
+ 
+     ![LUIS Create a new intent](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_4_intents.png)  
+     
+ 1. <b>Name it “NewExpense”</b>
+     * </b>Note</b>: It is important to spell it correctly (case-sensitive), otherwise the code you will copy later may not work.  
+     
+     ![LUIS Create a new intent](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_5_intents.png)  
+     
+ 1.	<b>Add the two example sentences</b> (utterances) to help LUIS understand the user intent to add a “NewExpense”:
+     * “create an expense”
+     * “add a new expense”  
+
+     ![LUIS Create utterances](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_6_utterance.png)  
+     
+ 1.	We will now train the “None” intent to help LUIS better identify which user questions/sentences it cannot understand. <b>Click on intents</b> in the left pane and <b>navigate to the “None” intent</b>.
+ 
+      ![LUIS None Intent](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_7_None.png)
+      
+ 1.	<b>Add the following 7 utterances</b> to the “None” intent:
+     * “how to apply for a corporate amex card?”
+     * “i have issues with my expense report”
+     * “when do i submit an expense report?”
+     * “i do not understand the different expense report statuses”
+     * 	“missing expense category”
+     * “what are unreconciled expenses in expenses?”
+     * “do you have recommendations, tips and tricks for expenses?”  
+     
+ 1. <b>Click on “Train”</b> (right upper corner) to train your LUIS based on the utterances you have provided  
+     
+      ![LUIS None Utterances](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_8_None-utterances.png)  
+      
+      ![LUIS None Utterances](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_9_train.png)  
+      
+ You will receive a notification when the training is successfully performed. You will now configure your bot in order to reflect the new “NewExpense” intent that you just trained.
+
+      
+
