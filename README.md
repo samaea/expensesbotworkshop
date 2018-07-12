@@ -137,5 +137,12 @@ To explore the preconfigured default intents and utterances, switch to the LUIS 
       
  You will receive a notification when the training is successfully performed. You will now configure your bot in order to reflect the new “NewExpense” intent that you just trained.
 
+Now that you have trained LUIS based on the utterances, you will need to publish it in order for the changes to be reflective when you call LUIS from the bot.
+
+ 1. Click on <b>Publish</b>, and once the Publish page finishes loading, click on the <b>"Publish"</b> button.
+ 
+      ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_10_publish.png)
+      ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_11_publish.png)
+      ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_12_publish.png)
       
 
