@@ -655,6 +655,66 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
   <Reference Include="Microsoft.Bot.Builder.CognitiveServices.QnAMaker, Version=1.1.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
 <HintPath>packages\Microsoft.Bot.Builder.CognitiveServices.1.1.7\lib\net46\Microsoft.Bot.Builder.CognitiveServices.QnAMaker.dll</HintPath>
   </Reference>
-  ``` 
+  ```  
   
+  ![View of Microsoft.Bot.Sample.Luis.csproj file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_csproj.png)  
+  
+ 1. <b>Find</b>  
+ 
+ ```csharp
+ <Compile Include="Dialogs\BasicLuisDialog.cs" />
+ ```  
+ 
+ <b>And add below it:</b>  
+ ```csharp
+ <Compile Include="Dialogs\BasicQnAMakerDialog.cs" />
+ ```  
+ 
+ ![View of Microsoft.Bot.Sample.Luis.csproj file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/25_csproj.png)  
+ 
+ 1. Now <b>open the “packages.config”</b> file on the left. You will now add the QnA Maker package, which is part of CognitiveServices package.  
+ 
+ <b>Find the following code line</b>:  
+ 
+ ```csharp
+ <package id="WindowsAzure.Storage" version="7.2.1" targetFramework="net46" />
+ ```  
+ 
+ <b>And add straight below it</b>:  
+ 
+  ```csharp
+ <package id="Microsoft.Bot.Builder.CognitiveServices" version="1.1.7" targetFramework="net46" />
+ ```  
+ 
+ ![View of Packages.config file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/26_packages.config.png)  
+ 
+ 1.	Now to <b>reflect the changes</b> you made, <b>right-click on “build.cmd”</b> on the left and click on <b>“Run from console”</b>  
+ 
+ ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/27_build.png)  
+ 
+ Assuming everything has been configured correctly, you will receive a similar successful finish message as shown below:  
+ 
+ ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/build_success.png)  
+ 
+ ### 6.	Test QnA Maker
+ 
+ Now you can go back to your bot on the Azure Portal and test it again. This time you will ask it a question available on the ReadyExpensesFAQ.docx (the document you populated QnA Maker with) and you should receive an answer. You do not have to match the question word by word as QnA Maker uses optimized machine learning logic to match it with its corresponding answer.  
+ 
+ 1. Click on the tab that has the <b>Azure portal</b> opened. If you do not have it opened, feel free to open a new tab and navigate to https://portal.azure.com  
+ 
+ 1. Click on Resource Groups and <b>find your resource group that hosts your bot</b> (you should only have one resource group)
+ 
+ 1.	Click on <b>your Bot Service</b> and finally click <b>on “Test in WebChat” on the left panel</b>  
+ 
+ ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
+ ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
+ ![Azure Portal Test Bot](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-6_botservicetest.png)  
+ 
+ 1. Test the bot by starting a chat with “How do I go about applying for an AMEX credit card? ” (note that the original question within the QnA Maker knowledge base is: “How do I apply for a corporate AMEX card?”). You will receive an answer that points you to a link:  
+ 
+ 
+ ![Azure Portal Test Bot for QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/28_test.png)  
+ 
+ #### Congratulations! You have now configured a Bot with Natural Language Understanding (using LUIS) that is capable of understanding a a few user intents, with the capability of redirecting queries to a pre-populated knowledgebase (QnAMaker) when the intent is not understood.
+ 
  
