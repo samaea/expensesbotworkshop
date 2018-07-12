@@ -17,7 +17,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 ### 1. Create a Bot Service Resource  
 
- Navigate to the website www.portal.azure.com and log in with your Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
+ Navigate to the website www.portal.azure.com and log in with your Azure Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
 
  ![Create a resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/1_create%20a%20resource.png)  
 
@@ -89,7 +89,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  To explore the preconfigured default intents and utterances, switch to the LUIS dashboard. (<b>NOTE: Leave the tab you just used open, you will need it later</b>):
 
 1. Open a new web browser tab and navigate to https://www.luis.ai
-1. Click on Sign In and log in with your Azure credentials (same as for the Azure Portal in the first step)  
+1. Click on Sign In and log in with your Azure Demo Lab credentials (same as for the Azure Portal in the first step)  
 
     ![LUIS Login on homepage](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_0_login.png)
 
@@ -503,3 +503,95 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
   The bot will use optical character recognition to identify information of the receipt image. It will provide you with the numbers it found and ask you to confirm or change the total number of the purchase:
   
   ![Azure Portal Test Bot OCR Prices](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-9_botserviceuploadimg.png)  
+  
+  Feel free to test with the other sample receipts provided in the previous link.  
+
+  <b>Well done! You have now configured a bot capable of understanding users’ intents with the help of LUIS.</b>
+  
+  
+ ### 6.	Add QnA Maker to your bot
+
+ You will now configure your bot to handle user input it does not understand (for instance when LUIS maps an utterance (user sentence input) to the “None” intent). For this scenario, you will use another Cognitive Service called “QnA Maker”. QnA Maker allows customers to create a knowledge base (like a small database) consisting of pairs of questions and answers. This can be populated by simply providing a FAQ link or by uploading a file containing questions and answers. Once the knowledge base is built, your bot can query the QnA Maker whenever an utterance lands on the “None” intent.
+ 
+ 1.	<b>Go to your Azure Portal</b> again and <b>create a new resource</b>. Search for <b>QnA Maker</b> and click on the service published by Microsoft.
+ 
+   ![Azure Portal Create QnAMaker Cog Service](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/12_create-qna.png)  
+   
+ 1. Enter the following information:
+     * Give the QnA Maker an <b>unique name “expensesqnamaker-‘youralias’”</b>
+     * select the <b>pricing tier S0</b>
+     * Use the <b>existing resource group</b> you created for your bot service (find it in the drop-down bar)
+     * Select <b>“B” for the search pricing tier</b>
+     * Leave the rest of the settings as is and <b>click “Create”</b>
+     
+     ![Azure Portal Create QnAMaker Cog Service](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/13_create-qna.png)  
+     
+     Wait for the QnA Maker service to be provisioned. You can check the status of the deployment by clicking on the Bell icon.  
+     
+     ![Azure Portal Check status of QnAMaker Deployment](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/14_create-qna.png)  
+
+ 1. Now open another website tab and <b>navigate to https://www.qnamaker.ai</b>  
+ 
+     * Click on “Sign In” and <b>log in with your Azure Demo Lab credentials</b>. On the top, find <b>“Create a knowledge base”</b>  
+
+     ![Azure Portal Signin to QnAMaker Website](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/15_create-qna.png)  
+     
+     ![Azure Portal Create knowledgebase](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/16_create-qna.png)  
+     
+     Note:You <b>do not</b> need to click on “Create a QnA Maker service”, since you did this in the previous step  
+     
+ 1. Select the Azure Active Directory and Azure subscription name you created the QnA Maker resource on the Azure Portal with (in the lab, you should only have one listed which will be the one you should select).  
+ 
+ 1. For Azure QnAService, select the one you just created in the previous steps “expensesqnamaker-‘youralias’”.  
+ 
+ 1. Give your knowledge base a name: “ExpensesKB”.  
+ 
+ 1. In this step, you can provide a FAQ Website link or use a file of question and answer pairs. In this lab, you will provide the FAQ document (ReadyExpensesFAQ.docx), which can be found here: https://aka.ms/msexpensesfaq. Please download it to your PC and upload it by clicking “+ file”.  
+ 
+ 1. Click on “Create your KB”  
+ 
+ ![Azure QnAMaker Create knowledgebase](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/18_create-qna.png)  
+ 
+ You should now see your questions and answers that were present on the document you just uploaded. Click on <b>Save and train</b>. Once that is complete, click on <b>Publish</b>.  
+ 
+  ![Azure QnAMaker Train and Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/19_create-qna.png)  
+  
+  ![Azure QnAMaker Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/20_create-qna.png)  
+  
+  1. Once your QnA Maker knowledge base is published, you will be provided with the <b>QnA Maker knowledge base ID, hostname and API key</b>. Please <b>note these</b> down as you will need them in the next step.  
+  
+  ![Azure QnAMaker Published/Deployed](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/21_create-qna.png)  
+  
+ 1. Now click on the tab that has the Azure portal opened. If you do not have it opened, feel free to open a new tab and navigate to https://portal.azure.com  
+ 
+ 1. Click on Resource Groups and <b>open your resource group that hosts your bot</b> (you should only have one resource group)  
+ 
+ 1. Click on your Bot Service  
+ 
+ ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
+ ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
+ 
+ 1. On the left panel, scroll down until you <b>find the section “Application settings”</b> and click on <b>“Add new setting”</b> (you will need to click on this each time you input a new name/value pair). This will show the two fields “Enter a name” and “Enter a value”.
+ 
+ In this section you will input the following name and value pairs coming from the parameters you noted on the qnamaker.ai website:
+ 
+ | Name                   | Value                                          |
+ | ---------------------- |:----------------------------------------------:|
+ | QnAKnowledgebaseId     | [The Knowledge base ID obtained from QnAMaker] |
+ | QnAEndpointHostName    | [QnAMaker Hostname obtained from QnAMaker]     |
+ | QnAAuthKey             | [API Key obtained from QnAMaker]               |
+ 
+ ![App Service Application Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_appsettings.png)  
+ 
+ 1. <B>Click on the “Save” button</b>. The result should look similar to the screenshot below
+ 
+ ![App Service Application Settings Save](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_create-qna.png)  
+ 
+ 1.	In the left pane, under App Service Settings, click on <b>All App service settings</b> to open the <b>“App Service Editor (Preview)”</b>.
+ 
+ ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/23_allappservicesettings.png)  
+ 
+ 1. Next, click on the “Go” button to start the editor. A new tap will open.  
+ 
+ ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappserviceeditor.png)  
+ ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor.png)  
