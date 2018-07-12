@@ -568,133 +568,132 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
  1. Click on your Bot Service  
  
- ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
- ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
+     ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
+     ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
  
  1. On the left panel, scroll down until you <b>find the section “Application settings”</b> and click on <b>“Add new setting”</b> (you will need to click on this each time you input a new name/value pair). This will show the two fields “Enter a name” and “Enter a value”.
  
- In this section you will input the following name and value pairs coming from the parameters you noted on the qnamaker.ai website:
+     In this section you will input the following name and value pairs coming from the parameters you noted on the qnamaker.ai website:
  
- | Name                   | Value                                          |
- | ---------------------- |:----------------------------------------------:|
- | QnAKnowledgebaseId     | [The Knowledge base ID obtained from QnAMaker] |
- | QnAEndpointHostName    | [QnAMaker Hostname obtained from QnAMaker]     |
- | QnAAuthKey             | [API Key obtained from QnAMaker]               |
+     | Name                   | Value                                          |
+     | ---------------------- |:----------------------------------------------:|
+     | QnAKnowledgebaseId     | [The Knowledge base ID obtained from QnAMaker] |
+     | QnAEndpointHostName    | [QnAMaker Hostname obtained from QnAMaker]     |
+     | QnAAuthKey             | [API Key obtained from QnAMaker]               |
  
- ![App Service Application Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_appsettings.png)  
- 
+     ![App Service Application Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_appsettings.png)  
  1. <B>Click on the “Save” button</b>. The result should look similar to the screenshot below
  
- ![App Service Application Settings Save](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_create-qna.png)  
+     ![App Service Application Settings Save](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_create-qna.png)  
  
  1.	In the left pane, under App Service Settings, click on <b>All App service settings</b> to open the <b>“App Service Editor (Preview)”</b>.
  
- ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/23_allappservicesettings.png)  
+     ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/23_allappservicesettings.png)  
  
  1. Next, click on the “Go” button to start the editor. A new tap will open.  
  
- ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappserviceeditor.png)  
- ![All App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor.png)  
+     ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappserviceeditor.png)  
+     ![All App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor.png)  
  
  1.	Open a new website tab and navigate to the following GitHub webpage: https://github.com/samaea/expensesbotworkshop/tree/master/supporting-files.  
  
      1. <b>Right-click on the “BasicQnAMakerDialog.cs” file and save it</b> on your local computer (e.g. the Desktop). This file is simply the default dialog file that comes with Bot Service when you select “Questions and Answers” being the bot template instead of the “Natural Language Understanding”, which you used in the beginning of the workshop to create LUIS.
      
-     ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_SaveFileFromGitHub.png)  
+         ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_SaveFileFromGitHub.png)  
      
      1. Upon completion of the download, <b>navigate back to the tab of the “App Service Editor”</b> and <b>drag and drop the downloaded file under the “Dialogs” folder.</b>  
      
-     ![Copy saved QnAMaker Dialog to App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_CopyFilesToAppServiceEditor.png)  
+         ![Copy saved QnAMaker Dialog to App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_CopyFilesToAppServiceEditor.png)  
      
-     The result will be having a new file inserted under “Dialogs”:  
+         The result will be having a new file inserted under “Dialogs”:  
      
-     ![View of BasicQnAMakerDialog.cs file in App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-BasicQnAMakerDialog.png)  
+         ![View of BasicQnAMakerDialog.cs file in App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-BasicQnAMakerDialog.png)  
      
  1.	Within the code you just inserted as a file, <b>find the following section</b>:
  
- ```csharp
- [LuisIntent("None")]
-  public async Task NoneIntent(IDialogContext context, LuisResult result)
-  {
-       await this.ShowLuisResult(context, result);
-  }
-  ```  
+     ```csharp
+     [LuisIntent("None")]
+      public async Task NoneIntent(IDialogContext context, LuisResult result)
+      {
+           await this.ShowLuisResult(context, result);
+      }
+      ```  
   
- And <b>replace</b> it with:
-   
- ```csharp
- [LuisIntent("None")]
- public async Task NoneIntent(IDialogContext context, LuisResult result)
- {
-       var message = context.MakeMessage();
-       message.Text = result.Query;
+      And <b>replace</b> it with:
 
-       await context.Forward(new BasicQnAMakerDialog(), ResumeAfterQnAQueryDialog, message, CancellationToken.None);
-  }
-  private async Task ResumeAfterQnAQueryDialog(IDialogContext context, IAwaitable<IMessageActivity> result)
-  {
-       context.Done("");
-  }
-  ```  
-  
-  ![Configuring None Intent to route to QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-NoneIntent.png)  
-  
- As you have now inserted QnA Maker into your solution, you will need to add additional packages (dependencies) that QnA Maker rely on and inform your build that the BasicQnAMakerDialog.cs exists within our project. You will do this by modifying the <b>“Microsoft.Bot.Sample.Luis.csproj”</b> and <b>“packages.config”</b> file.
+      ```csharp
+      [LuisIntent("None")]
+      public async Task NoneIntent(IDialogContext context, LuisResult result)
+      {
+            var message = context.MakeMessage();
+            message.Text = result.Query;
+
+            await context.Forward(new BasicQnAMakerDialog(), ResumeAfterQnAQueryDialog, message, CancellationToken.None);
+       }
+       private async Task ResumeAfterQnAQueryDialog(IDialogContext context, IAwaitable<IMessageActivity> result)
+       {
+            context.Done("");
+       }
+       ```  
+
+       ![Configuring None Intent to route to QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-NoneIntent.png)  
+
+      As you have now inserted QnA Maker into your solution, you will need to add additional packages (dependencies) that QnA Maker rely on and inform your build that the BasicQnAMakerDialog.cs exists within our project. You will do this by modifying the <b>“Microsoft.Bot.Sample.Luis.csproj”</b> and <b>“packages.config”</b> file.
  
  1. Click on <b>“Microsoft.Bot.Sample.Luis.csproj”</b> and find:
   
-  ```csharp
-  <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-  <HintPath>packages\System.IdentityModel.Tokens.Jwt.5.1.4\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
-  </Reference>
-  ```  
-  
-  <b>Add straight below the following code:</b>  
-  
-  ```csharp
-  <Reference Include="Microsoft.Bot.Builder.CognitiveServices.QnAMaker, Version=1.1.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-<HintPath>packages\Microsoft.Bot.Builder.CognitiveServices.1.1.7\lib\net46\Microsoft.Bot.Builder.CognitiveServices.QnAMaker.dll</HintPath>
-  </Reference>
-  ```  
-  
-  ![View of Microsoft.Bot.Sample.Luis.csproj file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_csproj.png)  
+      ```csharp
+      <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.5.1.4\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      </Reference>
+      ```  
+
+      <b>Add straight below the following code:</b>  
+
+      ```csharp
+      <Reference Include="Microsoft.Bot.Builder.CognitiveServices.QnAMaker, Version=1.1.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <HintPath>packages\Microsoft.Bot.Builder.CognitiveServices.1.1.7\lib\net46\Microsoft.Bot.Builder.CognitiveServices.QnAMaker.dll</HintPath>
+      </Reference>
+      ```  
+
+      ![View of Microsoft.Bot.Sample.Luis.csproj file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_csproj.png)  
   
  1. <b>Find</b>  
  
- ```csharp
- <Compile Include="Dialogs\BasicLuisDialog.cs" />
- ```  
- 
- <b>And add below it:</b>  
- ```csharp
- <Compile Include="Dialogs\BasicQnAMakerDialog.cs" />
- ```  
- 
- ![View of Microsoft.Bot.Sample.Luis.csproj file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/25_csproj.png)  
+     ```csharp
+     <Compile Include="Dialogs\BasicLuisDialog.cs" />
+     ```  
+
+     <b>And add below it:</b>  
+     ```csharp
+     <Compile Include="Dialogs\BasicQnAMakerDialog.cs" />
+     ```  
+
+     ![View of Microsoft.Bot.Sample.Luis.csproj file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/25_csproj.png)  
  
  1. Now <b>open the “packages.config”</b> file on the left. You will now add the QnA Maker package, which is part of CognitiveServices package.  
  
- <b>Find the following code line</b>:  
- 
- ```csharp
- <package id="WindowsAzure.Storage" version="7.2.1" targetFramework="net46" />
- ```  
- 
- <b>And add straight below it</b>:  
- 
-  ```csharp
- <package id="Microsoft.Bot.Builder.CognitiveServices" version="1.1.7" targetFramework="net46" />
- ```  
- 
- ![View of Packages.config file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/26_packages.config.png)  
+     <b>Find the following code line</b>:  
+
+     ```csharp
+     <package id="WindowsAzure.Storage" version="7.2.1" targetFramework="net46" />
+     ```  
+
+     <b>And add straight below it</b>:  
+
+      ```csharp
+     <package id="Microsoft.Bot.Builder.CognitiveServices" version="1.1.7" targetFramework="net46" />
+     ```  
+
+     ![View of Packages.config file after amendments](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/26_packages.config.png)  
  
  1.	Now to <b>reflect the changes</b> you made, <b>right-click on “build.cmd”</b> on the left and click on <b>“Run from console”</b>  
  
- ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/27_build.png)  
- 
- Assuming everything has been configured correctly, you will receive a similar successful finish message as shown below:  
- 
- ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/build_success.png)  
+     ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/27_build.png)  
+
+     Assuming everything has been configured correctly, you will receive a similar successful finish message as shown below:  
+
+     ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/build_success.png)  
  
  ### 6.	Test QnA Maker
  
@@ -706,14 +705,14 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
  1.	Click on <b>your Bot Service</b> and finally click <b>on “Test in WebChat” on the left panel</b>  
  
- ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
- ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
- ![Azure Portal Test Bot](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-6_botservicetest.png)  
+     ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
+     ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
+     ![Azure Portal Test Bot](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-6_botservicetest.png)  
  
  1. Test the bot by starting a chat with “How do I go about applying for an AMEX credit card? ” (note that the original question within the QnA Maker knowledge base is: “How do I apply for a corporate AMEX card?”). You will receive an answer that points you to a link:  
  
  
- ![Azure Portal Test Bot for QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/28_test.png)  
+     ![Azure Portal Test Bot for QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/28_test.png)  
  
  #### Congratulations! You have now built a Bot with Natural Language Understanding (using LUIS) that is capable of understanding a a few user intents, with the capability of redirecting queries to a pre-populated knowledgebase (QnAMaker) when the intent is not understood.
  
