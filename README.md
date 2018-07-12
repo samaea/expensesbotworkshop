@@ -715,6 +715,6 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
  ![Azure Portal Test Bot for QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/28_test.png)  
  
- #### Congratulations! You have now configured a Bot with Natural Language Understanding (using LUIS) that is capable of understanding a a few user intents, with the capability of redirecting queries to a pre-populated knowledgebase (QnAMaker) when the intent is not understood.
+ #### Congratulations! You have now built a Bot with Natural Language Understanding (using LUIS) that is capable of understanding a a few user intents, with the capability of redirecting queries to a pre-populated knowledgebase (QnAMaker) when the intent is not understood.
  
  
