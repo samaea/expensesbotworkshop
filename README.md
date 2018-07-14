@@ -6,7 +6,7 @@ Expenses Bot Workshop demonstrates how you can use the Bot Framework with LUIS (
 </br>
 
 ## Before you start...
-Please use this link "OFFICIAL LAB SET UP LINK HAS TO BE PASTED" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop.
+Please use this link "http://bit.ly/2L8c26N" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop (tip: note these down on a piece of paper or sticky notes on your PC).
 
 ![On demand lab](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/ondemandlab.png)
 
