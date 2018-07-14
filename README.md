@@ -235,7 +235,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
                             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
                             // Set the ContentType property of the WebRequest.  
                             request.ContentType = "application/json";
-                            request.Headers.Add("Ocp-Apim-Subscription-Key", "127766f23d2640af84d85e25f1d49b85");
+                            request.Headers.Add("Ocp-Apim-Subscription-Key", "8bf6f2a617814eebbdd4d31061a51e7b");
                             // Set the ContentLength property of the WebRequest.  
                             request.ContentLength = byteArray.Length;
                             // Get the request stream.  
@@ -259,7 +259,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
                             while (!foundOCRResult) {
                                 await Task.Delay(3000);
                                 request = WebRequest.Create(header);
-                                request.Headers.Add("Ocp-Apim-Subscription-Key", "127766f23d2640af84d85e25f1d49b85");
+                                request.Headers.Add("Ocp-Apim-Subscription-Key", "8bf6f2a617814eebbdd4d31061a51e7b");
                                 response = request.GetResponse();
                                 dataStream = response.GetResponseStream();
                                 // Open the stream using a StreamReader for easy access.  
