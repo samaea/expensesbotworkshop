@@ -596,11 +596,15 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      ![All App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor.png)  
  
  1.	Open a new website tab and navigate to the following GitHub webpage: https://github.com/samaea/expensesbotworkshop/tree/master/supporting-files.  
+
+     1. <b>Click on the “BasicQnAMakerDialog.cs” file.  
  
-     1. <b>Right-click on the “BasicQnAMakerDialog.cs” file and save it</b> on your local computer (e.g. the Desktop). This file is simply the default dialog file that comes with Bot Service when you select “Questions and Answers” being the bot template instead of the “Natural Language Understanding”, which you used in the beginning of the workshop to create LUIS.
-     
          ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_SaveFileFromGitHub.png)  
-     
+ 
+     1. <b>Right-click on the “Raw" button and save it</b> on your local computer (e.g. the Desktop). This file is simply the default dialog file that comes with Bot Service when you select “Questions and Answers” being the bot template instead of the “Natural Language Understanding”, which you used in the beginning of the workshop to create LUIS.
+      
+         ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_2_SaveFileFromGitHub.png)  
+         
      1. Upon completion of the download, <b>navigate back to the tab of the “App Service Editor”</b> and <b>drag and drop the downloaded file under the “Dialogs” folder.</b>  
      
          ![Copy saved QnAMaker Dialog to App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_CopyFilesToAppServiceEditor.png)  
