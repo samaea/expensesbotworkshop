@@ -609,7 +609,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      
          ![View of BasicQnAMakerDialog.cs file in App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-BasicQnAMakerDialog.png)  
      
- 1.	Within the code you just inserted as a file, <b>find the following section</b>:
+ 1.	Now within the file <b> "BasicLuisDialog.cs" <b> in the Dialog Tab, <b>find the following section</b>:
  
      ```csharp
      [LuisIntent("None")]
