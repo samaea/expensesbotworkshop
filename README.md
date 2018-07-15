@@ -597,7 +597,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
  1.	Open a new website tab and navigate to the following GitHub webpage: https://github.com/samaea/expensesbotworkshop/tree/master/supporting-files.  
 
-     1. <b>Click on the “BasicQnAMakerDialog.cs” file.  
+     1. Click on the <b>“BasicQnAMakerDialog.cs” file.</b>  
  
          ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_SaveFileFromGitHub.png)  
  
@@ -699,9 +699,9 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
 
      ![App Service Editor - Build.cmd](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/build_success.png)  
  
- ### 6.	Test QnA Maker
+ ### 6.	Test QnA Maker in Webchat
  
- Now you can go back to your bot on the Azure Portal and test it again. This time you will ask it a question available on the ReadyExpensesFAQ.docx (the document you populated QnA Maker with) and you should receive an answer. You do not have to match the question word by word as QnA Maker uses optimized machine learning logic to match it with its corresponding answer.  
+ Now go back to your bot on the <b>Azure Portal</b> and test it again. This time you will <b>ask it a question available on the ReadyExpensesFAQ.docx (the document you populated QnA Maker with) and you should receive an answer<b/>. You do not have to match the question word by word as QnA Maker uses optimized machine learning logic to match it with its corresponding answer.  
  
  1. Click on the tab that has the <b>Azure portal</b> opened. If you do not have it opened, feel free to open a new tab and navigate to https://portal.azure.com  
  
