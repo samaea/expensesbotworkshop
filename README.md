@@ -228,7 +228,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
                             urlOfUploadedImg = attachmentList.Current.ContentUrl;
 
                             // Create a request using a URL that can receive a post.   
-                            WebRequest request = WebRequest.Create("https://westeurope.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Printed");
+                            WebRequest request = WebRequest.Create("https://eastus.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Printed");
                             // Set the Method property of the request to POST.  
                             request.Method = "POST";
                             string postData = "{\"url\":\""+urlOfUploadedImg+"\"}";
