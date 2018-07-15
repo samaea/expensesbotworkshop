@@ -17,7 +17,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 ### 1. Create a Bot Service Resource  
 
- Navigate to the website www.portal.azure.com and log in with your Azure Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
+ Navigate to the website https://portal.azure.com and log in with your Azure Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
 
  ![Create a resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/1_create%20a%20resource.png)  
 
