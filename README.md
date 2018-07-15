@@ -63,9 +63,9 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 
 
- ### 3. View and modify your bot’s code using App Service Editor
+ ### 3. Explore your bot's code using App Service Editor
  
- In the left pane, under Development Tools, click on All App service settings to open the App Service Editor (Preview).
+ App Service Editor is an online web-editor where you can view, modify and build your code. In the left pane, under Development Tools, click on All App service settings to open the App Service Editor (Preview).
  
   ![App Service](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappservice.png)  
   
