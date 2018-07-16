@@ -717,7 +717,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
 
 
-```csharp
+     ```csharp
      <Compile Include="Dialogs\BasicLuisDialog.cs" />
      ```  
 
