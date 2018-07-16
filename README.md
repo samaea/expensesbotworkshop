@@ -46,7 +46,8 @@ This guide will help you step by step to perform the tasks that are necessary to
  ![Create bot img2](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/5_2_Create%20Bot%20Wizard.png)
 
  Then, click on <b>“Create”</b> for starting the deployment process of your bot service. A notification on the top bar, as the screenshot shows, will inform you about the progress:  
- * <b>Note</b>: If you receive a error stating "Unable to provision LUIS user" or "ajaxExtended call failed", ignore it and click on "Create" again, which should deploy without any issues.  
+ * <b>Note</b>: If you receive a error stating <b>"Unable to provision LUIS user"</b> or <b>"ajaxExtended call failed"</b>, ignore it and click on <b>"Create"</b> again, which should deploy without any issues.  
+ 
  ![Create bot Deployment](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/portalLuisError.PNG)  
     
  ![Create bot Deployment](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/6_Deployment.png)  
