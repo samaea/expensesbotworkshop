@@ -17,7 +17,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 ### 1. Create a Bot Service Resource  
 
- Navigate to the website https://portal.azure.com and log in with your Azure Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
+ Open an InPrivate browser to ensure Azure prompts you to login instead of using your cached employee credentials (More info on how to perform this: https://support.microsoft.com/en-us/help/4026200/windows-browse-inprivate-in-microsoft-edge). Navigate to the website https://portal.azure.com and log in with your Azure Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
 
  ![Create a resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/1_create%20a%20resource.png)  
 
@@ -46,7 +46,9 @@ This guide will help you step by step to perform the tasks that are necessary to
  ![Create bot img2](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/5_2_Create%20Bot%20Wizard.png)
 
  Then, click on <b>“Create”</b> for starting the deployment process of your bot service. A notification on the top bar, as the screenshot shows, will inform you about the progress:  
-
+ * <b>Note</b>: If you receive a error stating "Unable to provision LUIS user" or "ajaxExtended call failed", ignore it and click on "Create" again, which should deploy without any issues.  
+ ![Create bot Deployment](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/portalLuisError.PNG)  
+    
  ![Create bot Deployment](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/6_Deployment.png)  
 
  After the resource is deployed, you will get a green checkmark. Click on: “Go to resource”:  
