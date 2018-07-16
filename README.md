@@ -148,7 +148,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
       ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_11_publish.png)  
       ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_12_publish.png)  
       
- 1. Click on the previous tab you were in (Azure Portal), with the “App Service Editor” opened. Copy the code that uses one of the Azure Cognitive Services called Computer Vision API into the “Basic.Luis.Dialog.cs” tab. This will allow you to read characters off an image:
+ 1. <b>Navigate to the previous tab you were in (Azure Portal), with the “App Service Editor” opened. Copy the code</b> that uses one of the Azure Cognitive Services called Computer Vision API into the <b>“BasicLuisDialog.cs”</b> tab. This will allow you to read characters off an image:
       1. Delete all the code statements that start with “using” listed at the beginning lines (1-7) and replace with the following:
             ```csharp
             using System;
