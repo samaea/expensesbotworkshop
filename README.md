@@ -6,7 +6,8 @@ Expenses Bot Workshop demonstrates how you can use the Bot Framework with LUIS (
 </br>
 
 ## Before you start...
-Please use this link "http://bit.ly/2L8c26N" to set up your lab environment and get your Demo Lab credentials you will use throughout the workshop (tip: note these down on a piece of paper or sticky notes on your PC).
+Please use this link "http://bit.ly/2L8c26N" to set up your lab environment and <b>get your Demo Lab Credentials you will use throughout the workshop</b> (tip: note these down on a piece of paper or sticky notes on your PC).
+
 
 ![On demand lab](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/ondemandlab.png)
 
@@ -17,15 +18,20 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 ### 1. Create a Bot Service Resource  
 
- Open an InPrivate browser to ensure Azure prompts you to login instead of using your cached employee credentials (More info on how to perform this: https://support.microsoft.com/en-us/help/4026200/windows-browse-inprivate-in-microsoft-edge). Navigate to the website https://portal.azure.com and log in with your <b>Azure Demo Lab credentials</b>. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
+Start the Lab by clicking on "Launch Lab" and open an InPrivate browser to ensure Azure prompts you to login instead of using your cached employee credentials (More info on how to perform this: https://support.microsoft.com/en-us/help/4026200/windows-browse-inprivate-in-microsoft-edge). Navigate to the website https://portal.azure.com and log in with your <b>Azure Demo Lab credentials</b>. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
 
  ![Create a resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/1_create%20a%20resource.png)  
 
+
  After clicking on that icon, enter in the search field: <b>“bot service”</b> and select the resource <b>“Web App Bot”</b>.  
+
 
  ![Search for bot](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/2_search%20for%20bot.png)  
 
+
  The bot wizard window will pop up and to continue, press <b>“Create”</b>
+ 
+ 
  ![Create bot img1](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/5_1_Create%20Bot%20Wizard.png)  
 
  In the next step, the wizard will give you fields you need to fill out with some information:
@@ -45,6 +51,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
  ![Create bot img2](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/5_2_Create%20Bot%20Wizard.png)
 
+
  Then, click on <b>“Create”</b> for starting the deployment process of your bot service. A notification on the top bar, as the screenshot shows, will inform you about the progress:  
  * <b>Note</b>: If you receive a error stating <b>"Unable to provision LUIS user"</b> or <b>"ajaxExtended call failed"</b>, ignore it and click on <b>"Create"</b> again, which should deploy without any issues.  
  
@@ -52,7 +59,9 @@ This guide will help you step by step to perform the tasks that are necessary to
     
  ![Create bot Deployment](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/6_Deployment.png)  
 
+
  After the resource is deployed, you will get a green checkmark. Click on: “Go to resource”:  
+
 
  ![Go to resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/7_Go%20to%20resource.png)  
 
@@ -72,7 +81,7 @@ This guide will help you step by step to perform the tasks that are necessary to
  
   ![App Service](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappservice.png)  
   
-  Next, click on the “Go” button to start the editor. A new tap will open.  
+  Next, <b>click on the “Go” button</b> to start the editor. A new tap will open.  
   
    ![App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappserviceeditor.png)
    
@@ -92,32 +101,44 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  To explore the preconfigured default intents and utterances, switch to the LUIS dashboard. (<b>NOTE: Leave the tab you just used open, you will need it later</b>):
 
 1. Open a new web browser tab and navigate to https://www.luis.ai
-1. Click on Sign In and log in with your Azure Demo Lab credentials (same as for the Azure Portal in the first step)  
+1. Click on Sign In and <b>log in with your Azure Demo Lab credentials</b> (same as for the Azure Portal in the first step)  
+
 
     ![LUIS Login on homepage](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_0_login.png)
 
+
 1.	Click <b>“My Apps”</b> and find your <b>bot service “ContosoExpenses-“youralias”</b>:
 
+
     ![LUIS Apps](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_2-1_intents.PNG)  
+    
     
 1.	You should now see all the preconfigured intents, which matches the intents stated in the App Service Editor under the “BasicLuisDialog.cs” tab. Feel free to click on the intents and view the utterances associated with them. The utterances are sample sentences/questions that train LUIS to understand how to map sentences (utterances) to a specific intent.  
 
     ![LUIS Intents](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_3_intents.PNG)  
-    
+   
+   
  1.	In the next step we will create a new intent: <b>click on “Create a new intent”</b>
  
+ 
      ![LUIS Create a new intent](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_4_intents.png)  
-     
+   
+   
  1. <b>Name it “NewExpense”</b>
+ 
      * </b>Note</b>: It is important to spell it correctly (case-sensitive), otherwise the code you will copy later may not work.  
      
+     
      ![LUIS Create a new intent](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_5_intents.png)  
+     
      
  1.	<b>Add the two example sentences</b> (utterances) to help LUIS understand the user intent to add a “NewExpense”:
      * “create an expense”
      * “add a new expense”  
 
+
      ![LUIS Create utterances](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_6_utterance.png)  
+     
      
  1.	We will now train the “None” intent to help LUIS better identify which user questions/sentences it cannot understand. <b>Click on intents</b> in the left pane and <b>navigate to the “None” intent</b>.
  
@@ -134,6 +155,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      
  1. <b>Click on “Train”</b> (right upper corner) to train your LUIS based on the utterances you have provided  
      
+     
       ![LUIS None Utterances](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_8_None-utterances.png)  
       
       ![LUIS None Utterances](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_9_train.png)  
@@ -144,9 +166,11 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
 
  1. Click on <b>Publish</b>, and once the Publish page finishes loading, click on the <b>"Publish"</b> button.
  
+ 
       ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_10_publish.png)  
       ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_11_publish.png)  
       ![LUIS Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_12_publish.png)  
+      
       
  1. <b>Navigate to the previous tab you were in (Azure Portal), with the “App Service Editor” opened. Copy the code</b> that uses one of the Azure Cognitive Services called Computer Vision API into the <b>“BasicLuisDialog.cs”</b> tab. This will allow you to read characters off an image:
       1. <b>Delete all the code statements that start with “using”</b> listed at the beginning lines (1-7) and replace with the following:
@@ -503,7 +527,9 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
   ![Azure Portal Test Bot Upload Receipt](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-7_botserviceuploadimg.png)  
   ![Azure Portal Test Bot OCR Merchant Name](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-8_botserviceuploadimg.png)  
   
+  
   The bot will use optical character recognition to identify information of the receipt image. It will provide you with the numbers it found and ask you to confirm or change the total number of the purchase:
+  
   
   ![Azure Portal Test Bot OCR Prices](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-9_botserviceuploadimg.png)  
   
