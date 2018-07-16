@@ -173,13 +173,13 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
             
             ![App Editor Using statements](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-1_appserviceeditor.png)  
             
-      1. Within the code, find the following statement:  
+      1. Within the code, <b>find</b> the following statement:  
             ```csharp
             public class BasicLuisDialog : LuisDialog<object>
                 {
             ```  
             
-            And add directly in the next line underneath:  
+            And <b>insert</b> directly in the next line underneath:  
             
             ```csharp
             List<String> ocrList;
@@ -191,7 +191,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
       
           ![App Editor Global Variables](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-2_appserviceeditor.png)
           
-      1. Stay in the same code and look for this statement:  
+      1. Stay in the same code and <b>look</b> for this statement:  
             ```csharp
             private async Task ShowLuisResult(IDialogContext context, LuisResult result) 
             {
@@ -200,7 +200,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
             }
             ```  
             
-            And add underneath it:  
+            And <b>insert</b> underneath it:  
             
             ```csharp
             [LuisIntent("NewExpense")]
