@@ -667,7 +667,9 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
   
  1. <b>Find</b>  
  
-     ```csharp
+
+
+```csharp
      <Compile Include="Dialogs\BasicLuisDialog.cs" />
      ```  
 
@@ -723,4 +725,4 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
  #### Congratulations! You have now built a Bot with Natural Language Understanding (using LUIS) that is capable of understanding a a few user intents, with the capability of redirecting queries to a pre-populated knowledgebase (QnAMaker) when the intent is not understood.
  
- 
+#### Please take 3 Minutes to fill out our quick and anonymous survey so that we can improve for the future: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7hz4Jhw8fBMlvfnbcfzKEJUOUlJSk1SS09DT0EyRUEyU1FXRlU3R0VVRC4u 
