@@ -17,7 +17,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 ### 1. Create a Bot Service Resource  
 
- Open an InPrivate browser to ensure Azure prompts you to login instead of using your cached employee credentials (More info on how to perform this: https://support.microsoft.com/en-us/help/4026200/windows-browse-inprivate-in-microsoft-edge). Navigate to the website https://portal.azure.com and log in with your Azure Demo Lab credentials. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
+ Open an InPrivate browser to ensure Azure prompts you to login instead of using your cached employee credentials (More info on how to perform this: https://support.microsoft.com/en-us/help/4026200/windows-browse-inprivate-in-microsoft-edge). Navigate to the website https://portal.azure.com and log in with your <b>Azure Demo Lab credentials</b>. On the start screen, in the left upper corner, you find the button “Create a resource” (as shown in the screenshot below).  
 
  ![Create a resource](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/1_create%20a%20resource.png)  
 
@@ -60,7 +60,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
 ### 2. Test your Bot Service
 
- In your resource on the left panel, scroll to <b>“Test in Web Chat”</b> to test if your bot is running and type “Hello”. The bot will respond with “You have reached Greeting. You said: Hello”. This confirms that the bot has received your message and passed it to a default LUIS app. This LUIS app detected the default “Greeting” intent.  
+ In your resource on the left panel, scroll to <b>“Test in Web Chat”</b> to test if your bot is running and type “Hello”. The bot will respond with “You have reached Greeting. You said: Hello”. This confirms that the bot has received your message (utterance), passed it to LUIS and has identified the utterance as being relevant to the pre-populated "Greeting" intent. Similarly, the utterance "I am in need of some help" was mapped to the pre-populated "Help" intent. At a later stage, you will create your own intent and train it with your own utterances to help LUIS understand when to map it accordingly.
 
  ![Webchat](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/8_Webchat.png)  
 
@@ -68,7 +68,7 @@ This guide will help you step by step to perform the tasks that are necessary to
 
  ### 3. Explore your bot's code using App Service Editor
  
- App Service Editor is an online web-editor where you can view, modify and build your code. In the left pane, under Development Tools, click on All App service settings to open the App Service Editor (Preview).
+ App Service Editor is an online web-editor where you can view, modify and build your code. In the left pane, under Development Tools, click on <b>All App service settings</b> to open the App Service Editor (Preview).
  
   ![App Service](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappservice.png)  
   
@@ -96,11 +96,11 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
 
     ![LUIS Login on homepage](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_0_login.png)
 
-1.	Click <b>“My Apps”</b> and find your (on the Azure portal created) <b>bot service “ContosoExpenses-“youralias”</b>:
+1.	Click <b>“My Apps”</b> and find your <b>bot service “ContosoExpenses-“youralias”</b>:
 
     ![LUIS Apps](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_2-1_intents.PNG)  
     
-1.	You should now see all the preconfigured intents, which match the intents stated in the App Code Editor under the “BasicLuisDialog.cs” tab. Feel free to click on the intents and those along with the utterances associated with each intent. The utterances are sample sentences/questions that train LUIS to understand how to map sentences (utterances) to a specific intent.  
+1.	You should now see all the preconfigured intents, which matches the intents stated in the App Service Editor under the “BasicLuisDialog.cs” tab. Feel free to click on the intents and view the utterances associated with them. The utterances are sample sentences/questions that train LUIS to understand how to map sentences (utterances) to a specific intent.  
 
     ![LUIS Intents](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/luis_3_intents.PNG)  
     
@@ -593,7 +593,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
      ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/23_allappservicesettings.png)  
  
- 1. Next, click on the “Go” button to start the editor. A new tap will open.  
+ 1. Next, click on the <b>“Go”</b> button to start the editor. A new tap will open.  
  
      ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappserviceeditor.png)  
      ![All App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor.png)  
