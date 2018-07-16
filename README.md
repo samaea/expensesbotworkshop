@@ -567,17 +567,17 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      
      ![Azure Portal Create knowledgebase](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/16_create-qna.png)  
      
-     Note:You <b>do not</b> need to click on “Create a QnA Maker service”, since you did this in the previous step  
+     Note: You <b>do not</b> need to click on “Create a QnA Maker service”, since you did this in the previous step  
      
- 1. Select the Azure Active Directory and Azure subscription name you created the QnA Maker resource on the Azure Portal with (in the lab, you should only have one listed which will be the one you should select).  
+ 1. Select the <b>Azure Active Directory and Azure subscription name you created the QnA Maker resource</b> on the Azure Portal with (in the lab, you should only have one listed which will be the one you should select).  
  
- 1. For Azure QnAService, select the one you just created in the previous steps “expensesqnamaker-‘youralias’”.  
+ 1. For Azure <b>QnAService</b>, select the one you just created in the previous steps <b>“expensesqnamaker-‘youralias’”</b>.  
  
- 1. Give your knowledge base a name: “ExpensesKB”.  
+ 1. Give your <b>knowledge base a name: “ExpensesKB”</b>.  
  
- 1. In this step, you can provide a FAQ Website link or use a file of question and answer pairs. In this lab, you will provide the FAQ document (ReadyExpensesFAQ.docx), which can be found here: https://aka.ms/msexpensesfaq. Please download it to your PC and upload it by clicking “+ file”.  
+ 1. In this step, you can provide a FAQ Website link or use a file of question and answer pairs. In this lab, <b>you will provide the FAQ document (ReadyExpensesFAQ.docx)</b>, which can be found here: https://aka.ms/msexpensesfaq. Please <b>download it</b> to your PC and <b>upload</b> it by clicking “+ file”.  
  
- 1. Click on “Create your KB”  
+ 1. Click on <b>“Create your KB”</b>.  
  
  ![Azure QnAMaker Create knowledgebase](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/18_create-qna.png)  
  
@@ -587,22 +587,28 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
   
   ![Azure QnAMaker Publish](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/20_create-qna.png)  
   
+  
   1. Once your QnA Maker knowledge base is published, you will be provided with the <b>QnA Maker knowledge base ID, hostname and API key</b>. Please <b>note these</b> down as you will need them in the next step.  
+  
   
   ![Azure QnAMaker Published/Deployed](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/21_create-qna.png)  
   
+  
  1. Now click on the tab that has the Azure portal opened. If you do not have it opened, feel free to open a new tab and navigate to https://portal.azure.com  
+ 
  
  1. Click on Resource Groups and <b>open your resource group that hosts your bot</b> (you should only have one resource group)  
  
- 1. Click on your Bot Service  
+ 1. Click on your <b>Web App Service</b> 
  
      ![Azure Portal Resource Groups](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-4_azurerg.png)  
      ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
  
+ 
  1. On the left panel, scroll down until you <b>find the section “Application settings”</b> and click on <b>“Add new setting”</b> (you will need to click on this each time you input a new name/value pair). This will show the two fields “Enter a name” and “Enter a value”.
  
-     In this section you will input the following name and value pairs coming from the parameters you noted on the qnamaker.ai website:
+ 
+     In this section <b>you will input the following name and value pairs</b> coming from the parameters you noted on the qnamaker.ai website:
  
      | Name                   | Value                                          |
      | ---------------------- |:----------------------------------------------:|
@@ -611,36 +617,52 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      | QnAAuthKey             | [API Key obtained from QnAMaker]               |
  
      ![App Service Application Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_appsettings.png)  
+     
  1. <B>Click on the “Save” button</b>. The result should look similar to the screenshot below
+ 
  
      ![App Service Application Settings Save](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/22_create-qna.png)  
  
+ 
  1.	In the left pane, under App Service Settings, click on <b>All App service settings</b> to open the <b>“App Service Editor (Preview)”</b>.
+ 
  
      ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/23_allappservicesettings.png)  
  
+ 
  1. Next, click on the <b>“Go”</b> button to start the editor. A new tap will open.  
+ 
  
      ![All App Service Settings](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/9_allappserviceeditor.png)  
      ![All App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor.png)  
  
- 1.	Open a new website tab and navigate to the following GitHub webpage: https://github.com/samaea/expensesbotworkshop/tree/master/supporting-files.  
+ 
+ 1.	Open a new website tab and <b>navigate to the following GitHub webpage</b>: https://github.com/samaea/expensesbotworkshop/tree/master/supporting-files.  
+
 
      1. Click on the <b>“BasicQnAMakerDialog.cs” file.</b>  
  
+ 
          ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_SaveFileFromGitHub.png)  
+ 
  
      1. <b>Right-click on the “Raw" button and save it</b> on your local computer (e.g. the Desktop). This file is simply the default dialog file that comes with Bot Service when you select “Questions and Answers” being the bot template instead of the “Natural Language Understanding”, which you used in the beginning of the workshop to create LUIS.
       
+      
          ![Save QnAMaker Dialog from GitHub](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_2_SaveFileFromGitHub.png)  
-         
+      
+      
      1. Upon completion of the download, <b>navigate back to the tab of the “App Service Editor”</b> and <b>drag and drop the downloaded file under the “Dialogs” folder.</b>  
+     
      
          ![Copy saved QnAMaker Dialog to App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_CopyFilesToAppServiceEditor.png)  
      
+     
          The result will be having a new file inserted under “Dialogs”:  
      
+     
          ![View of BasicQnAMakerDialog.cs file in App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-BasicQnAMakerDialog.png)  
+     
      
  1.	Now within the file <b> "BasicLuisDialog.cs"</b>  in the Dialog Tab, <b>find the following section</b>:
  
@@ -695,7 +717,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
 
 
-     ```csharp
+```csharp
      <Compile Include="Dialogs\BasicLuisDialog.cs" />
      ```  
 
@@ -744,7 +766,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      ![Azure Portal Bot Web App](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-5_botservice.png)  
      ![Azure Portal Test Bot](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/10-6_botservicetest.png)  
  
- 1. Test the bot by starting a chat with “How do I go about applying for an AMEX credit card? ” (note that the original question within the QnA Maker knowledge base is: “How do I apply for a corporate AMEX card?”). You will receive an answer that points you to a link:  
+ 1. <b>Test the bot by starting a chat with “How do I go about applying for an AMEX credit card? ”</b> (note that the original question within the QnA Maker knowledge base is: “How do I apply for a corporate AMEX card?”). You will receive an answer that points you to a link:  
  
  
      ![Azure Portal Test Bot for QnAMaker](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/28_test.png)  
