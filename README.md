@@ -613,7 +613,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
      
          ![View of BasicQnAMakerDialog.cs file in App Service Editor](https://raw.githubusercontent.com/samaea/expensesbotworkshop/master/images/24_appserviceeditor-BasicQnAMakerDialog.png)  
      
- 1.	Now within the file <b> "BasicLuisDialog.cs" <b> in the Dialog Tab, <b>find the following section</b>:
+ 1.	Now within the file <b> "BasicLuisDialog.cs"</b>  in the Dialog Tab, <b>find the following section</b>:
  
      ```csharp
      [LuisIntent("None")]
@@ -701,7 +701,7 @@ Now that you have explored the code, <b>right-click on “build.cmd” under Pro
  
  ### 6.	Test QnA Maker in Webchat
  
- Now go back to your bot on the <b>Azure Portal</b> and test it again. This time you will <b>ask it a question available on the ReadyExpensesFAQ.docx (the document you populated QnA Maker with) and you should receive an answer<b/>. You do not have to match the question word by word as QnA Maker uses optimized machine learning logic to match it with its corresponding answer.  
+ Now go back to your bot on the <b>Azure Portal</b> and test it again. This time you will <b>ask it a question available on the ReadyExpensesFAQ.docx (the document you populated QnA Maker with) and you should receive an answer</b>. You do not have to match the question word by word as QnA Maker uses optimized machine learning logic to match it with its corresponding answer.  
  
  1. Click on the tab that has the <b>Azure portal</b> opened. If you do not have it opened, feel free to open a new tab and navigate to https://portal.azure.com  
  
